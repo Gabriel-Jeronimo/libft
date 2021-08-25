@@ -6,25 +6,26 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:47:07 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/24 13:23:40 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/08/25 12:59:58 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*navigable_dest;
-	char	*navigable_src;
-	size_t	counter;
+	char	*srcc;
+	char	*dstc;
+	size_t	i;
 
-	navigable_dest = (char *) dest;
-	navigable_src = (char *) src;
-	counter = 0;
-	while (navigable_dest[counter] != 0 && counter < n)
-	{
-		navigable_dest[counter] = navigable_src[counter];
-		counter++;
-	}
-	return (dest);
+	i = -1;
+	srcc = (char *)src;
+	dstc = (char *)dst;
+	if (srcc < dstc)
+		while ((int)(--len) >= 0)
+			*(dstc + len) = *(srcc + len);
+	else
+		while (++i < len)
+			*(dstc + i) = *(srcc + i);
+	return (dst);
 }

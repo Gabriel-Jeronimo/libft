@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 18:49:50 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/23 22:09:49 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/08/25 10:23:08 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	counter;
+	size_t	counter;
 
-	counter = ft_strlen((char *)s);
-	while (counter > 0)
+	counter = ft_strlen((char *)s) + 1;
+	while (counter--)
 	{
-		if (*s + counter == c)
-			return ((char *)s + counter);
-		counter--;
+		if (*(s + counter) == (char) c)
+		{
+			return ((char *)(s + counter));
+		}
 	}
 	return (NULL);
 }

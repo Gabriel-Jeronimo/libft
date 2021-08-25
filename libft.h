@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:24:03 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/24 15:02:03 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/08/25 13:00:22 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int				ft_isprint(int character);
 void			*ft_memchr(const void *string, int character, size_t len);
 int				ft_memcmp(const void *ptr1, const void *ptr2, size_t num);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
-void			*ft_memmove(void *dest, const void *src, size_t n);
+void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *s, int c, size_t n);
 char			*ft_strcat(char *dest, char *src);
 char			*ft_strchr(const char *s, int c);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-size_t			ft_strlcpy(char *restrict dst, const char *restrict src,
+size_t			ft_strlcpy(char *dst, const char *src,
 size_t dstsize);
 size_t				ft_strlen(char *str);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);

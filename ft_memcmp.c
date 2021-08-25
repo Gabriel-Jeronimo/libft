@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 20:05:34 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/24 16:00:44 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/08/25 14:34:15 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 int	ft_memcmp( const void *ptr1, const void *ptr2, size_t num )
 {
-	char	formated_ptr1[num + 1];
-	char	formated_ptr2[num + 1];
+	char	*ptr1_navigable;
+	char	*ptr2_navigable;
+	size_t	counter;
 
-	ft_memcpy(&formated_ptr1, &ptr1, num);
-	ft_memcpy(&formated_ptr2, &ptr2, num);
-	return (formated_ptr1 - formated_ptr2);
+	counter = 0;
+	ptr1_navigable = (char *)ptr1;
+	ptr2_navigable = (char *)ptr2;
+	while (counter < num)
+	{
+		if (ptr1_navigable[counter] != ptr2_navigable[counter])
+		{
+			return ((unsigned char)ptr1_navigable[counter]
+				- (unsigned char) ptr2_navigable[counter]);
+		}
+		counter++;
+	}
+	return (0);
 }

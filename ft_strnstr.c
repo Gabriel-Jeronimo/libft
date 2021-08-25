@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 20:28:55 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/23 22:22:13 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/08/25 19:00:58 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,27 @@
 
 char	*ft_strnstr(const char	*string, const char *substring, size_t len)
 {
-	int	a;
-	int	counter;
+	size_t	substring_len;
+	size_t	counter;
 
-	counter = 0;
-	if (substring[counter] == 0)
+	substring_len = ft_strlen((char *)substring);
+	if (*substring == 0)
 		return ((char *) string);
-	else
+	while (substring_len <= len)
 	{
-		while (string[counter] != 0 && counter < (int) len)
+		if (*string == *substring)
 		{
-			if (substring[counter] == string[counter])
+			counter = 1;
+			while (counter++)
 			{
-				a = counter;
-				while (substring[a] == string[a] || substring[a] == 0)
-				{
-					if (a >= (int) len)
-					{
-						break ;
-					}
-					if (substring[a] == 0)
-						return ((char *) string);
-					a++;
-				}
+				if (counter == substring_len)
+					return ((char *)string);
+				if (string[counter] != substring[counter])
+					break ;
 			}
-			string++;
-			counter++;
 		}
+		string++;
+		len--;
 	}
 	return (NULL);
 }
