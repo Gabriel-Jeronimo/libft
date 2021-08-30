@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/30 14:40:01 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/30 14:44:53 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+void	ft_putnbr_fd(int number, int fd)
 {
-	int	counter;
-	int	size;
-
-	size = ft_strlen(dest);
-	counter = 0;
-	while (src[counter] != 0)
+	if (number < 0)
 	{
-		dest[size + counter] = src[counter];
-		counter++;
+		write(fd, "-", 1);
+		if (number == -2147483648)
+		{
+			write(fd, "2", 1);
+			number = -147483648;
+		}
+		number = -number;
 	}
-	dest[size + counter] = '\0';
-	return (dest);
+	if (number < 10)
+	{
+		number = number + '0';
+		write(fd, &number, 1);
+	}
+	else
+	{
+		ft_putnbr_fd(number / 10, fd);
+		ft_putnbr_fd(number % 10, fd);
+	}
 }

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/30 14:25:49 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/30 14:27:08 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	counter;
-	int	size;
-
-	size = ft_strlen(dest);
-	counter = 0;
-	while (src[counter] != 0)
+	while (*s)
 	{
-		dest[size + counter] = src[counter];
-		counter++;
+		write(fd, s, 1);
+		s++;
 	}
-	dest[size + counter] = '\0';
-	return (dest);
 }

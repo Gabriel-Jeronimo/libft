@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/25 20:20:52 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/26 03:05:59 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	counter;
-	int	size;
+	size_t	counter;
+	char	*dest;
 
-	size = ft_strlen(dest);
+	dest = (char *)malloc((len + 1) * sizeof(char));
+	if (!s)
+		return (NULL);
+	if (!dest)
+		return (NULL);
 	counter = 0;
-	while (src[counter] != 0)
+	while (counter < len)
 	{
-		dest[size + counter] = src[counter];
+		*dest = *(s + counter + start);
+		dest++;
 		counter++;
 	}
-	dest[size + counter] = '\0';
-	return (dest);
+	*dest = '\0';
+	return (dest - len);
 }

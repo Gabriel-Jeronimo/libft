@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/27 13:13:34 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/27 13:32:50 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char *find_next_delimiter(char const *s, char c)
 {
-	int	counter;
-	int	size;
-
-	size = ft_strlen(dest);
-	counter = 0;
-	while (src[counter] != 0)
+	while (*s != 0 && *s != c)
 	{
-		dest[size + counter] = src[counter];
-		counter++;
+		s++;
 	}
-	dest[size + counter] = '\0';
-	return (dest);
+	if (*s == 0)
+		return NULL;
+	return (char *)s;
+}
+
+char **ft_split(char const *s, char c)
+{
+	char * pointer_next;
+
+	pointer_next = find_next_delimiter(s, c);
+	while (pointer_next)
+	{
+		
+	}
 }

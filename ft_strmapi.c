@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/30 13:10:47 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/30 13:37:22 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	counter;
-	int	size;
+	char	*newstr;
+	size_t	index;
 
-	size = ft_strlen(dest);
-	counter = 0;
-	while (src[counter] != 0)
+	if (!s || !f)
+		return (NULL);
+	newstr = (char *)malloc(ft_strlen((char *)s) + 1);
+	if (!newstr)
+		return (NULL);
+	index = 0;
+	while (s[index])
 	{
-		dest[size + counter] = src[counter];
-		counter++;
+		newstr[index] = f(index, s[index]);
+		index++;
 	}
-	dest[size + counter] = '\0';
-	return (dest);
+	newstr[index] = '\0';
+	return (newstr);
 }

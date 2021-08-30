@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:06:44 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 19:20:45 by gjeronim         ###   ########.fr       */
+/*   Created: 2021/08/26 14:45:19 by gjeronim          #+#    #+#             */
+/*   Updated: 2021/08/26 18:52:37 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	counter;
-	int	size;
+	size_t		size;
+	char		*newstring;
 
-	size = ft_strlen(dest);
-	counter = 0;
-	while (src[counter] != 0)
-	{
-		dest[size + counter] = src[counter];
-		counter++;
-	}
-	dest[size + counter] = '\0';
-	return (dest);
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	size = ft_strlen((char *) s1);
+	while (size && ft_strchr(set, s1[size]))
+		size--;
+	newstring = ft_substr((char *)s1, 0, size + 1);
+	return (newstring);
 }
