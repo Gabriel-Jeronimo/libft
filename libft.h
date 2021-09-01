@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:24:03 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/30 14:39:13 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/01 15:50:11 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +31,35 @@ void			*ft_memset(void *s, int c, size_t n);
 char			*ft_strcat(char *dest, char *src);
 char			*ft_strchr(const char *s, int c);
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-size_t			ft_strlcpy(char *dst, const char *src,
-size_t dstsize);
-size_t				ft_strlen(char *str);
+size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t			ft_strlen(const char *str);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
-char			*ft_strnstr(const char *string, const char *substring
-,size_t len);
-
+char			*ft_strnstr(const char *string, const char *substring,
+					size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strstr(char *str, char *to_find);
 int				ft_tolower(int character);
 int				ft_toupper(int character);
-char 			*ft_substr(char const *s, unsigned int start, size_t len);
-char 			*ft_strjoin(char const *s1, char const *s2);
-char 			*ft_strtrim(char const *s1, char const *set);
-char 			**ft_split(char const *s, char c);
-char 			*ft_itoa(int n);
-char 			*ft_strmapi(char const *s, char (*f)(unsigned
-int, char));
-void 			ft_striteri(char *s, void (*f)(unsigned int,
-char*));
-void 			ft_putchar_fd(char c, int fd);
-void 			ft_putstr_fd(char *s, int fd);
-void 			ft_putendl_fd(char *s, int fd);
-void 			ft_putnbr_fd(int n, int fd);
-char 			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void 			ft_striteri(char *s, void (*f)(unsigned int, char*));
-void 			ft_putchar_fd(char c, int fd);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strtrim(char const *s1, char const *set);
+char			**ft_split(char const *s, char c);
+char			*ft_itoa(int n);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
+void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
+typedef struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list;
 #endif

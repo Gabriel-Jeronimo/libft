@@ -6,7 +6,7 @@
 #    By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 23:19:15 by gjeronim          #+#    #+#              #
-#    Updated: 2021/08/30 14:44:24 by gjeronim         ###   ########.fr        #
+#    Updated: 2021/09/01 14:46:09 by gjeronim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,18 +47,16 @@ FILES		= ft_isalpha.c \
 							ft_putchar_fd.c \
 							ft_putstr_fd.c \
 							ft_putendl_fd.c \
+							ft_split.c \
 							ft_putnbr_fd.c
-							# ft_split.c \
 
 OBJ			= $(FILES:%.c=%.o)
 
 all: $(NAME)
 
-# This won't run if the .o files don't exist or are not modified
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-# This won't run if the source files don't exist or are not modified
 $(OBJ): $(FILES)
 	gcc $(CFLAGS) $(FILES)
 
@@ -70,6 +68,4 @@ fclean: clean
 
 re: fclean all
 
-# I use .PHONY to make sure that gnu make will still run even if files called
-# clean / fclean / all and re already exist in the directory
 .PHONY: clean fclean all re

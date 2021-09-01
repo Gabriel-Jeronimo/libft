@@ -6,13 +6,13 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 16:28:27 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/30 13:03:10 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/01 15:57:21 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_len(int n)
+static long int	ft_digits_len(int n)
 {
 	int					len;
 
@@ -33,7 +33,7 @@ char	*ft_itoa(int n)
 	long int			len;
 	unsigned int		number;
 
-	len = ft_len(n);
+	len = ft_digits_len(n);
 	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
