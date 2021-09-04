@@ -6,17 +6,17 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 17:54:27 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/01 17:55:17 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:08:30 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	while (lst->next)
 	{
 		lst = lst->next;
 	}
-	return lst;
+	return (lst);
 }

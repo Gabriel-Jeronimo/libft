@@ -6,13 +6,14 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 17:59:34 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/01 17:59:45 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:08:50 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-
+	del(lst->next);
+	free(lst);
 }
