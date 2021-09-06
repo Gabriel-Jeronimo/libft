@@ -6,13 +6,13 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 09:43:13 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/24 15:52:17 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/04 20:27:00 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	result;
 	int	signal;

@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:24:03 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/04 19:10:31 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/04 20:27:28 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 void			*ft_calloc(size_t num, size_t size);
 void			ft_bzero(void *s, size_t n);
 char			*ft_strdup(const char *str);
