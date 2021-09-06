@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 17:54:27 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/04 19:08:30 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/06 10:19:25 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst->next)
-	{
-		lst = lst->next;
-	}
+	if (lst)
+		while (lst->next)
+			lst = lst->next;
 	return (lst);
 }
