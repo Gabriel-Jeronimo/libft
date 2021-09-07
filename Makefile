@@ -6,11 +6,9 @@
 #    By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 23:19:15 by gjeronim          #+#    #+#              #
-#    Updated: 2021/09/04 19:05:22 by gjeronim         ###   ########.fr        #
+#    Updated: 2021/09/07 15:56:51 by gjeronim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 NAME		= libft.a
 CFLAGS		= -Wall -Werror -Wextra -I. -c
@@ -36,7 +34,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 $(OBJ): $(FILES)
-	gcc $(CFLAGS) $(FILES)
+	clang $(CFLAGS) $(FILES)
 
 bonus: $(NAME) $(OBJ_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ_BONUS)

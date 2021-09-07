@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 17:56:35 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/06 10:25:21 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/07 15:55:19 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		}
 		aux->next = new;
 	}
-
 }
