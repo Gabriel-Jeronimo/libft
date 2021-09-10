@@ -6,11 +6,12 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:13:34 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/07 15:19:12 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/10 19:32:38 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+	#include <stdio.h>
 
 static int	count_words(const char *str, char c)
 {
@@ -69,19 +70,21 @@ char	**ft_split(char const *s, char c)
 	char	*ptr;
 
 	result = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!s || !c || !result)
+	if (!result)
 		return (NULL);
-	ptr = mystrtok((char *) s, c);
+	ptr = mystrtok((char *)s, c);
 	counter = 0;
 	while (ptr != NULL)
 	{
 		if (*ptr != '\0')
 		{
-			result[counter] = ptr;
+			result[counter] = ft_strdup(ptr);
+			free(ptr);
 			counter++;
 		}
 		ptr = mystrtok(NULL, c);
 	}
 	result[counter] = NULL;
+	free(ptr);
 	return (result);
 }
