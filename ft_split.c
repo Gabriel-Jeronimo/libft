@@ -6,12 +6,11 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:13:34 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/10 19:32:38 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/10 19:44:55 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-	#include <stdio.h>
 
 static int	count_words(const char *str, char c)
 {
@@ -34,57 +33,40 @@ static int	count_words(const char *str, char c)
 	return (i);
 }
 
-static char	*mystrtok(char *s, char d)
+static void	ft_fill_matrix(char const *s, char c, size_t num, char **res)
 {
-	static char	*input;
-	char		*result;
-	int			i;
+	size_t	count;
+	char	*start_str;
+	int		lenWord;
 
-	if (s != NULL)
-		input = s;
-	if (input == NULL)
-		return (NULL);
-	result = (char *)malloc(ft_strlen(input) + 1);
-	i = 0;
-	while (input[i] != '\0')
+	count = 0;
+	start_str = (char *)s;
+	while (count < num)
 	{
-		if (input[i] != d)
-			result[i] = input[i];
-		else
-		{
-			result[i] = '\0';
-			input = input + i + 1;
-			return (result);
-		}
-		i++;
+		lenWord = 0;
+		while (*start_str == c && *start_str != 0)
+			++start_str;
+		while (start_str[lenWord] != c && start_str[lenWord] != 0)
+			lenWord++;
+		res[count] = ft_substr(start_str, 0, lenWord);
+		start_str += lenWord;
+		count++;
 	}
-	result[i] = '\0';
-	input = NULL;
-	return (result);
+	res[count] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
-	int		counter;
-	char	*ptr;
+	char	**res;
+	size_t	num;
 
-	result = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!result)
+	res = NULL;
+	if (!s)
 		return (NULL);
-	ptr = mystrtok((char *)s, c);
-	counter = 0;
-	while (ptr != NULL)
-	{
-		if (*ptr != '\0')
-		{
-			result[counter] = ft_strdup(ptr);
-			free(ptr);
-			counter++;
-		}
-		ptr = mystrtok(NULL, c);
-	}
-	result[counter] = NULL;
-	free(ptr);
-	return (result);
+	num = count_words(s, c);
+	res = (char **)malloc(sizeof(char *) * (num + 1));
+	if (!res)
+		return (NULL);
+	ft_fill_matrix(s, c, num, res);
+	return (res);
 }
