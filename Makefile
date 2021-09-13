@@ -6,7 +6,7 @@
 #    By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 23:19:15 by gjeronim          #+#    #+#              #
-#    Updated: 2021/09/09 17:42:35 by gjeronim         ###   ########.fr        #
+#    Updated: 2021/09/13 15:01:30 by gjeronim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,21 +30,23 @@ OBJ_BONUS = $(BONUS:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 $(OBJ): $(FILES)
 	clang $(CFLAGS) $(FILES)
 
-bonus: $(NAME) $(OBJ_BONUS)
+bonus: $(OBJ_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ_BONUS)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	rm -f $(NAME) $(OBJ_BONUS)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean all re bonus
+rebonus: fclean bonus
+
+.PHONY: all clean fclean re copy bonus rebonus
