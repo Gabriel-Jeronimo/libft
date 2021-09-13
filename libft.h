@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:24:03 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/13 15:27:42 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/13 15:31:00 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int				ft_strncmp(const char *s1, const char *s2, size_t num);
 char			*ft_strnstr(const char *string, const char *substring,
 					size_t len);
 char			*ft_strrchr(const char *s, int c);
-char			*ft_strstr(char *str, char *to_find);
 int				ft_tolower(int character);
 int				ft_toupper(int character);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
