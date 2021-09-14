@@ -6,7 +6,7 @@
 #    By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 23:19:15 by gjeronim          #+#    #+#              #
-#    Updated: 2021/09/14 17:23:24 by gjeronim         ###   ########.fr        #
+#    Updated: 2021/09/14 17:51:08 by gjeronim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ FILES		= 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 BONUS		=	ft_lstnew.c ft_lstdelone.c ft_lstclear.c ft_lstadd_front.c \
 				ft_lstadd_back.c ft_lstsize.c ft_lstiter.c ft_lstmap.c ft_lstlast.c
 
-OBJ			= $(FILES:%.c=%.o)
+OBJ			= $(FILES:.c=.o)
 
-OBJ_BONUS = $(BONUS:%.c=%.o)
+OBJ_BONUS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -38,6 +38,7 @@ $(OBJ): $(FILES)
 
 bonus: $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ_BONUS)
+
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
