@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 03:13:24 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/26 13:50:37 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/14 14:51:50 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
 	j = 0;
 	len = ft_strlen((char *) s1) + ft_strlen((char *)s2);
@@ -32,9 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	while (s2[j] != '\0')
 	{
-		dest[i] = s2[j];
-		i++;
-		j++;
+		dest[i++] = s2[j++];
 	}
 	dest[i] = '\0';
 	return (dest);

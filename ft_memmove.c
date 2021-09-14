@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 17:47:07 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/25 12:59:58 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/14 14:35:09 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*dstc;
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	i = -1;
 	srcc = (char *)src;
 	dstc = (char *)dst;

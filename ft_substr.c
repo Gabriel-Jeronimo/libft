@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 20:20:52 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/09/10 19:43:26 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/14 14:13:42 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (res);
 	}
 	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
 	ft_strlcpy(res, s + start, len + 1);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 14:25:49 by gjeronim          #+#    #+#             */
-/*   Updated: 2021/08/30 14:27:08 by gjeronim         ###   ########.fr       */
+/*   Updated: 2021/09/14 14:26:21 by gjeronim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s || !fd)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);
