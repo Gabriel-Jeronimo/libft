@@ -6,7 +6,7 @@
 #    By: gjeronim <gjeronim@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/23 23:19:15 by gjeronim          #+#    #+#              #
-#    Updated: 2021/09/14 15:29:36 by gjeronim         ###   ########.fr        #
+#    Updated: 2021/09/14 17:23:24 by gjeronim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,14 +30,14 @@ OBJ_BONUS = $(BONUS:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJ_BONUS)
-	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 $(OBJ): $(FILES)
 	clang $(CFLAGS) $(FILES)
 
 bonus: $(OBJ_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ_BONUS)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
