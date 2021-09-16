@@ -14,12 +14,12 @@ git clone https://github.com/Gabriel-Jeronimo/libft.git
 ```
 2. Clone o repositório da libft-war-machine.
 ```
-	git clone https://github.com/ska42/libft-war-machine.git
+git clone https://github.com/ska42/libft-war-machine.git
 ```
 3. Gere o arquivo de configuração.
 ```
-	cd libft-war-machine
-	bash grademe.sh
+cd libft-war-machine
+bash grademe.sh
 ```
 4. Altere o PATH_LIBFT no my_config.sh.
 ```
